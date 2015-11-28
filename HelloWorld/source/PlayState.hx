@@ -1,5 +1,7 @@
 package;
 
+import flash.Vector;
+import flixel.FlxObject;
 import flixel.util.FlxPoint;
 import flixel.system.debug.Log;
 import flixel.addons.display.FlxBackdrop;
@@ -16,6 +18,8 @@ import flixel.util.FlxMath;
 class PlayState extends FlxState
 {
 	var _bg:FlxBackdrop;
+	var _sky:FlxBackdrop;
+
 	var debugText:FlxText;
 	/**
 	 * Function that is called up when to state is created to set it up. 
@@ -23,6 +27,7 @@ class PlayState extends FlxState
 	override public function create():Void
 	{
 		var _btnBack = new FlxButton(0, 0, "Back", clickBack);
+
 		add(_btnBack);
 
 		debugText = new FlxText(0,0,100, "wjat");
@@ -30,8 +35,18 @@ class PlayState extends FlxState
 		debugText.scrollFactor.y = 0;
 
 		_bg = new FlxBackdrop("assets/images/endless_gras.png",1,0,true,false);
+		_sky = new FlxBackdrop("assets/images/sky.png",1,0,true,false);
+		_sky.setPosition(0,FlxG.height - _sky.cachedGraphics.bitmap.height);
 		_bg.setPosition(0, FlxG.height - _bg.cachedGraphics.bitmap.height);
-		add(_bg);
+
+		var layers = [_sky,_bg];
+
+		for(o in layers)
+		{
+			add(o);
+		}
+
+
 		add(debugText);
 		super.create();
 	}
