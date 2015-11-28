@@ -41,5 +41,27 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="flixel-addons1,1,0" level="project" />
+    <orderEntry type="module-library">
+      <library name="haxelib|flixel-ui">
+        <CLASSES>
+          <root url="$USER_HOME$/haxelib/flixel-ui/1,0,2/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="$USER_HOME$/haxelib/flixel-ui/1,0,2/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="module-library">
+      <library name="haxelib|flixel-addons">
+        <CLASSES>
+          <root url="$USER_HOME$/haxelib/flixel-addons/1,1,0/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="$USER_HOME$/haxelib/flixel-addons/1,1,0/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>

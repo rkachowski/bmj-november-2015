@@ -6,14 +6,15 @@ import flixel.util.FlxAngle;
 import flixel.util.FlxColor;
 
 class Player extends FlxSprite{
-    public var speed:Float = 200;
+    public var speed:Float = 2000;
+    var added:Bool = false;
 
     public function new(X:Float=0, Y:Float=0) {
         super(X, Y);
 
-        loadGraphic("assets/images/dude_walking.png",true, 400, 409);
-        animation.add("walk", [1,2],2,true);
-        animation.play("walk");
+        loadGraphic("assets/images/dude_walking.png", true, 405, 409);
+        animation.add("walk", [0,1,0,1],10,true);
+
         drag.x = drag.y = 1600;
     }
 
@@ -61,7 +62,6 @@ class Player extends FlxSprite{
             mA = 0;
 
             FlxAngle.rotatePoint(speed, 0, 0, 0, mA, velocity);
-          //  animation.play("walk");
 
         }
 
@@ -72,6 +72,11 @@ class Player extends FlxSprite{
 
     override public function update():Void {
         movement();
+        if(!added)
+        {
+            animation.play("walk");
+        }
+
         super.update();
     }
 
