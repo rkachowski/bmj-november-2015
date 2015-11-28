@@ -12,8 +12,11 @@ class Player extends FlxSprite{
     public function new(X:Float=0, Y:Float=0) {
         super(X, Y);
 
-        loadGraphic("assets/images/dude_walking.png", true, 405, 409);
-        animation.add("walk", [0,1,0,1],10,false);
+        loadGraphic("assets/images/dude_sprites.png", true, 455, 455);
+        animation.add("walk", [0,1,0,1],20,false);
+        animation.add("fly", [2,3,2,3],20,true);
+        animation.add("butt",[4],10,true);
+
 
         drag.x = drag.y = 1600;
     }
@@ -27,10 +30,10 @@ class Player extends FlxSprite{
 
         angle = 0;
         added = true;
-        _up = FlxG.keys.anyPressed(["UP", "W"]);
-        _down = FlxG.keys.anyPressed(["DOWN", "S"]);
-        _left = FlxG.keys.anyPressed(["LEFT", "A"]);
-        _right = FlxG.keys.anyPressed(["RIGHT", "D"]);
+        _up = FlxG.keys.anyPressed(["UP"]);
+        _down = FlxG.keys.anyPressed(["DOWN"]);
+        _left = FlxG.keys.anyPressed(["LEFT"]);
+        _right = FlxG.keys.anyPressed(["RIGHT"]);
 
         if (_up && _down)
             _up = _down = false;
@@ -76,6 +79,16 @@ class Player extends FlxSprite{
         if(!added)
         {
             animation.play("walk");
+        }
+
+        if(FlxG.keys.justReleased.A)
+        {
+            animation.play("fly");
+        }
+
+        if(FlxG.keys.justReleased.S)
+        {
+            animation.play("butt");
         }
         super.update();
     }
