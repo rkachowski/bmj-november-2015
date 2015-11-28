@@ -10,7 +10,9 @@ class Player extends FlxSprite{
 
     public function new(X:Float=0, Y:Float=0) {
         super(X, Y);
-        makeGraphic(61, 56, FlxColor.BLUE);
+
+        loadGraphic("assets/images/dude.png");
+
         drag.x = drag.y = 1600;
     }
 
