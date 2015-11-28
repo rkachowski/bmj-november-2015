@@ -17,6 +17,7 @@ class MenuState extends FlxState
 	 */
 	override public function create():Void
 	{
+		add(new FlxText(0,0,100, "hello world!"));
 		super.create();
 	}
 	
