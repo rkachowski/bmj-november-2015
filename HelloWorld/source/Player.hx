@@ -11,8 +11,9 @@ class Player extends FlxSprite{
     public function new(X:Float=0, Y:Float=0) {
         super(X, Y);
 
-        loadGraphic("assets/images/dude.png");
-
+        loadGraphic("assets/images/dude_walking.png",true, 400, 409);
+        animation.add("walk", [1,2],2,true);
+        animation.play("walk");
         drag.x = drag.y = 1600;
     }
 
@@ -22,6 +23,8 @@ class Player extends FlxSprite{
         var _down:Bool = false;
         var _left:Bool = false;
         var _right:Bool = false;
+
+       // animation.play("idle");
 
         _up = FlxG.keys.anyPressed(["UP", "W"]);
         _down = FlxG.keys.anyPressed(["DOWN", "S"]);
@@ -58,7 +61,13 @@ class Player extends FlxSprite{
             mA = 0;
 
             FlxAngle.rotatePoint(speed, 0, 0, 0, mA, velocity);
+          //  animation.play("walk");
+
         }
+
+
+
+
     }
 
     override public function update():Void {
