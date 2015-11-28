@@ -40,4 +40,9 @@ class GameScoreUI extends FlxSpriteGroup
     {
         _score.text = "score: "+score;
     }
+
+    public function debug(text:String):Void
+    {
+        _debug.text = text;
+    }
 }
