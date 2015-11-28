@@ -19,8 +19,9 @@ class PlayState extends FlxState
 {
 	var _bg:FlxBackdrop;
 	var _sky:FlxBackdrop;
+	var _ui:GameScoreUI;
+	var _catapult:FlxSprite;
 
-	var debugText:FlxText;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -30,24 +31,24 @@ class PlayState extends FlxState
 
 		add(_btnBack);
 
-		debugText = new FlxText(0,0,100, "wjat");
-		debugText.scrollFactor.x = 0;
-		debugText.scrollFactor.y = 0;
-
 		_bg = new FlxBackdrop("assets/images/endless_gras.png",1,0,true,false);
 		_sky = new FlxBackdrop("assets/images/sky.png",1,0,true,false);
+		_ui = new GameScoreUI();
+		_catapult = new FlxSprite(418,56);
+		_catapult.loadGraphic("assets/images/catapult.png");
+		_catapult.scrollFactor.x = 0;
+		_catapult.scrollFactor.y = 0;
+
 		_sky.setPosition(0,FlxG.height - _sky.cachedGraphics.bitmap.height);
 		_bg.setPosition(0, FlxG.height - _bg.cachedGraphics.bitmap.height);
 
-		var layers = [_sky,_bg];
+		var layers = [_sky,_bg,_ui,_catapult];
 
 		for(o in layers)
 		{
 			add(o);
 		}
 
-
-		add(debugText);
 		super.create();
 	}
 
@@ -70,9 +71,10 @@ class PlayState extends FlxState
 	 */
 	override public function update():Void
 	{
-		FlxG.camera.scroll.x += 5;
-
-
+		if(FlxG.mouse.justPressed)
+		{
+			_ui.debug("position : " + FlxG.mouse.screenX +  " " + FlxG.mouse.screenY);
+		}
 		super.update();
 	}	
 }
