@@ -4,6 +4,8 @@
     <option name="buildConfig" value="3" />
     <option name="flexSdkName" value="flex_4.6" />
     <option name="mainClass" value="Main" />
+    <option name="openFLPath" value="$MODULE_DIR$/Project.xml" />
+    <option name="openFLTarget" value="Neko" />
     <option name="outputFolder" value="$MODULE_DIR$/export" />
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="false">
@@ -18,5 +20,16 @@
     <orderEntry type="library" name="OpenFL" level="application" />
     <orderEntry type="library" name="Flixel Addons" level="application" />
     <orderEntry type="library" name="Flixel Engine" level="application" />
+    <orderEntry type="module-library">
+      <library name="haxelib|openfl">
+        <CLASSES>
+          <root url="$USER_HOME$/haxelib/openfl/3,4,0/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="$USER_HOME$/haxelib/openfl/3,4,0/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
   </component>
 </module>
