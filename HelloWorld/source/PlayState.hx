@@ -1,5 +1,8 @@
 package;
 
+import flixel.util.FlxPoint;
+import flixel.system.debug.Log;
+import flixel.addons.display.FlxBackdrop;
 import flixel.FlxG;
 import flixel.FlxSprite;
 import flixel.FlxState;
@@ -12,6 +15,8 @@ import flixel.util.FlxMath;
  */
 class PlayState extends FlxState
 {
+	var _bg:FlxBackdrop;
+	var debugText:FlxText;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -19,6 +24,15 @@ class PlayState extends FlxState
 	{
 		var _btnBack = new FlxButton(0, 0, "Back", clickBack);
 		add(_btnBack);
+
+		debugText = new FlxText(0,0,100, "wjat");
+		debugText.scrollFactor.x = 0;
+		debugText.scrollFactor.y = 0;
+
+		_bg = new FlxBackdrop("assets/images/endless_gras.png",1,0,true,false);
+		_bg.setPosition(0, FlxG.height - _bg.cachedGraphics.bitmap.height);
+		add(_bg);
+		add(debugText);
 		super.create();
 	}
 
@@ -41,6 +55,9 @@ class PlayState extends FlxState
 	 */
 	override public function update():Void
 	{
+		FlxG.camera.scroll.x += 5;
+
+
 		super.update();
 	}	
 }

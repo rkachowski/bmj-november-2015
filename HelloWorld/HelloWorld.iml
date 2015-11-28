@@ -29,5 +29,17 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="flixel3,3,11" level="project" />
+    <orderEntry type="module-library">
+      <library name="haxelib|flixel">
+        <CLASSES>
+          <root url="$USER_HOME$/haxelib/flixel/3,3,11/" />
+        </CLASSES>
+        <JAVADOC />
+        <SOURCES>
+          <root url="$USER_HOME$/haxelib/flixel/3,3,11/" />
+        </SOURCES>
+      </library>
+    </orderEntry>
+    <orderEntry type="library" name="flixel-addons1,1,0" level="project" />
   </component>
 </module>
