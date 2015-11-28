@@ -43,7 +43,7 @@ class Player extends FlxSprite{
         var mA:Float = 0;
 
         if (_up || _down || _left || _right){
-            added = false;
+//            added = false;
         if (_up)
         {
             angle = -30;
