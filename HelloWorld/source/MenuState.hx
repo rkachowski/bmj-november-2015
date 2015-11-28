@@ -12,14 +12,23 @@ import flixel.util.FlxMath;
  */
 class MenuState extends FlxState
 {
+    var _debugText:FlxText;
+
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
 	override public function create():Void
 	{
-		add(new FlxText(0,0,100, "hello world!"));
+        _debugText = new FlxText(0,0,100, "hello world!");
+
+		add(_debugText);
 		super.create();
 	}
+
+    public function logText(message:String):Void
+    {
+        _debugText.text = message;
+    }
 	
 	/**
 	 * Function that is called when this state is destroyed - you might want to 

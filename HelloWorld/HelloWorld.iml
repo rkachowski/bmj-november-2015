@@ -17,10 +17,7 @@
     </content>
     <orderEntry type="jdk" jdkName="Haxe 3.2.1" jdkType="Haxe toolkit" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="library" name="OpenFL" level="application" />
-    <orderEntry type="library" name="Flixel Addons" level="application" />
-    <orderEntry type="library" name="Flixel Engine" level="application" />
-    <orderEntry type="module-library">
+    <orderEntry type="module-library" exported="">
       <library name="haxelib|openfl">
         <CLASSES>
           <root url="$USER_HOME$/haxelib/openfl/3,4,0/" />
@@ -31,5 +28,6 @@
         </SOURCES>
       </library>
     </orderEntry>
+    <orderEntry type="library" name="flixel3,3,11" level="project" />
   </component>
 </module>
