@@ -19,8 +19,8 @@ class PlayState extends FlxState
 {
 	var _bg:FlxBackdrop;
 	var _sky:FlxBackdrop;
+	var _ui:GameScoreUI;
 
-	var debugText:FlxText;
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
@@ -30,24 +30,20 @@ class PlayState extends FlxState
 
 		add(_btnBack);
 
-		debugText = new FlxText(0,0,100, "wjat");
-		debugText.scrollFactor.x = 0;
-		debugText.scrollFactor.y = 0;
-
 		_bg = new FlxBackdrop("assets/images/endless_gras.png",1,0,true,false);
 		_sky = new FlxBackdrop("assets/images/sky.png",1,0,true,false);
+		_ui = new GameScoreUI();
+
 		_sky.setPosition(0,FlxG.height - _sky.cachedGraphics.bitmap.height);
 		_bg.setPosition(0, FlxG.height - _bg.cachedGraphics.bitmap.height);
 
-		var layers = [_sky,_bg];
+		var layers = [_sky,_bg,_ui];
 
 		for(o in layers)
 		{
 			add(o);
 		}
 
-
-		add(debugText);
 		super.create();
 	}
 
@@ -70,8 +66,7 @@ class PlayState extends FlxState
 	 */
 	override public function update():Void
 	{
-		FlxG.camera.scroll.x += 5;
-
+//		FlxG.camera.scroll.x += 5;
 
 		super.update();
 	}	
