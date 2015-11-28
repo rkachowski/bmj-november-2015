@@ -7,17 +7,18 @@ class GameScoreUI extends FlxSpriteGroup
 {
     var _score:FlxText;
     var _debug:FlxText;
-
+    var _points :Int;
     public function new()
     {
         super(0,0);
+        _points = 0;
         setupLabels();
     }
 
     private function setupLabels():Void
     {
-        _score = new FlxText(0,0,200,"score: ");
-        _debug = new FlxText(0,20,200,"debug: ");
+        _score = new FlxText(0,0,500,"score: ");
+        _debug = new FlxText(0,20,500,"debug: ");
 
         _score.size = 18;
         _debug.size = 18;
@@ -34,6 +35,12 @@ class GameScoreUI extends FlxSpriteGroup
         {
             add(l);
         }
+    }
+
+    public function addScore(score:Int):Void
+    {
+        _points += score;
+        setScore(_points);
     }
 
     public function setScore(score:Int):Void

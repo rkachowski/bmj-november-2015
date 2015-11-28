@@ -1,5 +1,6 @@
 package ;
 
+import flixel.util.FlxPoint;
 import flixel.FlxSprite;
 import flixel.FlxG;
 import flixel.util.FlxAngle;
@@ -79,6 +80,10 @@ class Player extends FlxSprite{
         if(!added)
         {
             animation.play("walk");
+        }
+        if(FlxG.keys.justPressed.SPACE)
+        {
+            velocity =  new FlxPoint(0,0);
         }
 
         if(FlxG.keys.justReleased.A)

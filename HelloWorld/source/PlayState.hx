@@ -44,17 +44,37 @@ class PlayState extends FlxState
 		_ui = new GameScoreUI();
 		_ui.scrollFactor.x = 0;
 		_ui.scrollFactor.y = 0;
+//
+
+		var jesus = new FlxSprite();
+		jesus.loadGraphic("assets/images/jesus.png");
+		jesus.setPosition(9166,434 - jesus.height + 15);
 
 
+		var sun = new FlxSprite();
+		sun.loadGraphic("assets/images/the_sun.png",true, 867,867);
+		sun.setPosition(13949,-3161);
+		sun.scale.x = 0.5;
+		sun.scale.y = 0.5;
+		sun.animation.add("d",[0,1],2,true);
+		sun.animation.play("d");
+
+		var son = new FlxSprite();
+		son.loadGraphic("assets/images/the_son.png");
+		son.setPosition(19833,510 - son.height);//19833
+		son.scale.x = 0.6;
+		son.scale.y = 0.6;
+
+//		PlayState.hx:95: (x: 9166.674 | y: 434)
+//	PlayState.hx:95: (x: 13949.099 | y: -3161)
+//	PlayState.hx:95: (x: 19833.941 | y: 493)
 		_catapult = new FlxSprite(418,56);
 		_catapult.loadGraphic("assets/images/catapult.png");
-//		_catapult.scrollFactor.x = 0;
-//		_catapult.scrollFactor.y = 0;
 
 		_sky.setPosition(0,FlxG.height - _sky.cachedGraphics.bitmap.height);
 		_bg.setPosition(0, FlxG.height - _bg.cachedGraphics.bitmap.height);
 
-		var layers = [_sky,_bg,_ui,_catapult,_dude];
+		var layers = [_sky,_bg,_ui,_catapult,jesus,son,sun,_dude];
 
 		for(o in layers)
 		{
@@ -88,13 +108,17 @@ class PlayState extends FlxState
 		if(_dude.y > 264) _dude.y = 264;
 		if(_dude.y < -3430) _dude.y = -3430;
 
+		_ui.debug("position : " +Math.round( _dude.x )+  " " + Math.round(_dude.y));
 
+		if(FlxG.keys.justReleased.P)
+		{
+			_ui.addScore(Math.round(Math.random() * 20000));
+		}
 
 		if(FlxG.mouse.justPressed)
 		{
-			trace(FlxG.camera.bounds);
+			trace(FlxG.mouse.getWorldPosition());
 
-			_ui.debug("position : " + _dude.x +  " " + _dude.y);
 //			_dude.setPosition(FlxG.mouse.screenX,FlxG.mouse.screenY);
 		}
 		super.update();
