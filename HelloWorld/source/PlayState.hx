@@ -62,7 +62,7 @@ class PlayState extends FlxState
 		}
 
 		FlxG.camera.follow(_dude);
-
+		FlxG.camera.setBounds(-50000,-3300,500000,3900);
 		super.create();
 	}
 
@@ -85,9 +85,14 @@ class PlayState extends FlxState
 	 */
 	override public function update():Void
 	{
+		if(_dude.y > 264) _dude.y = 264;
+		if(_dude.y < -3430) _dude.y = -3430;
+		
 		if(FlxG.mouse.justPressed)
 		{
-			_ui.debug("position : " + FlxG.mouse.screenX +  " " + FlxG.mouse.screenY);
+			trace(FlxG.camera.bounds);
+
+			_ui.debug("position : " + _dude.x +  " " + _dude.y);
 //			_dude.setPosition(FlxG.mouse.screenX,FlxG.mouse.screenY);
 		}
 		super.update();
