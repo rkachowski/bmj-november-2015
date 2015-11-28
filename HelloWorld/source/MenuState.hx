@@ -17,14 +17,28 @@ class MenuState extends FlxState
 	/**
 	 * Function that is called up when to state is created to set it up. 
 	 */
+
+
 	override public function create():Void
 	{
         _debugText = new FlxText(0,0,100, "hello world!");
 
 		add(_debugText);
+        
+		var backgroundSprite = new FlxSprite();
+		backgroundSprite.loadGraphic("assets/images/title.jpg");
+		add(backgroundSprite);
+		add(new FlxText(0,0,100, "hello world!"));
+
+		var _btnPlay = new FlxButton(400, 300, "Play", clickPlay);
+		add(_btnPlay);
 		super.create();
 	}
 
+	private function clickPlay():Void
+	{
+		FlxG.switchState(new PlayState());
+	}
     public function logText(message:String):Void
     {
         _debugText.text = message;
