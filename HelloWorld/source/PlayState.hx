@@ -6,19 +6,21 @@ import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
 import flixel.util.FlxMath;
+import flixel.util.FlxColor;
 
-/**
- * A FlxState which can be used for the actual gameplay.
- */
 class PlayState extends FlxState
 {
-	/**
-	 * Function that is called up when to state is created to set it up. 
-	 */
+
+
+	private var _player:Player;
+
 	override public function create():Void
 	{
 		var _btnBack = new FlxButton(0, 0, "Back", clickBack);
 		add(_btnBack);
+		_player = new Player(20, 20);
+		add(_player);
+
 		super.create();
 	}
 
