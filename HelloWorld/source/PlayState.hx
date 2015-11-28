@@ -37,7 +37,7 @@ class PlayState extends FlxState
 		_dude = new Player(38,152);
 		_dude.scale.x = 0.25;
 		_dude.scale.y = 0.25;
-		_dude.angle = -30;
+		//_dude.angle = -30;
 
 		_bg = new FlxBackdrop("assets/images/endless_gras.png",1,1,true,false);
 		_sky = new FlxBackdrop("assets/images/sky.png",1,1,true,false);
