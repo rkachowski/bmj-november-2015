@@ -5,6 +5,7 @@ import flixel.FlxSprite;
 import flixel.FlxState;
 import flixel.text.FlxText;
 import flixel.ui.FlxButton;
+import flixel.addons.ui.FlxButtonPlus;
 import flixel.util.FlxMath;
 
 /**
@@ -22,9 +23,7 @@ class MenuState extends FlxState
 		var backgroundSprite = new FlxSprite();
 		backgroundSprite.loadGraphic("assets/images/title.jpg");
 		add(backgroundSprite);
-		add(new FlxText(0,0,100, "hello world!"));
-
-		var _btnPlay = new FlxButton(400, 300, "Play", clickPlay);
+		var _btnPlay = new FlxButtonPlus(400, 300, clickPlay, "Play", 60,40);
 		add(_btnPlay);
 		super.create();
 	}
