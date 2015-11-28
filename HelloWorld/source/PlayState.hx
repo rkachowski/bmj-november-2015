@@ -17,9 +17,16 @@ class PlayState extends FlxState
 	 */
 	override public function create():Void
 	{
+		var _btnBack = new FlxButton(0, 0, "Back", clickBack);
+		add(_btnBack);
 		super.create();
 	}
-	
+
+
+	function clickBack():Void
+	{
+		FlxG.switchState(new MenuState());
+	}
 	/**
 	 * Function that is called when this state is destroyed - you might want to 
 	 * consider setting all objects this state uses to null to help garbage collection.
