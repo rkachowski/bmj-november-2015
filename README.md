@@ -1,4 +1,4 @@
-## berlin mini jam november 2016
+## berlin mini jam november 2015
 ![dude](art/dude.png)
 
 
